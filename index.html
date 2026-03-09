@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roma Master Bot | Dashboard</title>
+    <title>Roma Master Bot | Official Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #070b14; color: #e2e8f0; }
         .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .btn-glow:hover { box-shadow: 0 0 15px rgba(99, 102, 241, 0.5); }
+        .cmd-box:hover { background: rgba(99, 102, 241, 0.1); border-color: #6366f1; }
     </style>
 </head>
 <body class="p-4 md:p-10">
@@ -18,56 +18,86 @@
         <div class="glass p-8 rounded-3xl w-full max-w-sm text-center shadow-2xl">
             <h2 class="text-2xl font-bold mb-6 text-white">Roma Master Gate</h2>
             <input type="password" id="password" placeholder="Enter Password" class="w-full bg-slate-900 p-4 rounded-xl border border-slate-700 mb-4 focus:ring-2 focus:ring-indigo-500 outline-none text-center">
-            <button onclick="checkPassword()" class="w-full bg-indigo-600 hover:bg-indigo-500 py-4 rounded-xl font-bold text-white transition">UNLOCK ACCESS</button>
+            <button onclick="checkPassword()" class="w-full bg-indigo-600 hover:bg-indigo-500 py-4 rounded-xl font-bold text-white transition">UNLOCK COMMANDS</button>
         </div>
     </div>
 
-    <div id="mainContent" class="hidden max-w-5xl mx-auto space-y-8">
+    <div id="mainContent" class="hidden max-w-4xl mx-auto space-y-8">
         <header class="text-center py-10">
-            <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">ROMA MASTER BOT</h1>
-            <p class="text-slate-400 mt-2">MM2 Value Check & Trading System - Trusted & Fast</p>
+            <h1 class="text-4xl font-extrabold text-white">⚔️ ROMA MASTER BOT ⚔️</h1>
+            <p class="text-slate-400 mt-2">Value Check & Trading System</p>
         </header>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            
-            <div onclick="copyCmd('/corrupt')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
-                <h3 class="font-bold text-indigo-400">1. Value Check</h3>
-                <p class="text-sm text-slate-400 mt-1">Cek detail harga, demand, & rarity.</p>
-                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/nama_item</code>
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer" onclick="copy('/harvester')">
+                <h3 class="font-bold text-indigo-400">1️⃣ Value Check</h3>
+                <p class="text-sm text-slate-400 mt-1">Cek detail harga, demand, dan kelangkaan item MM2.</p>
+                <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /(nama_item)</code>
             </div>
 
-            <div onclick="copyCmd('/bat for /harvester')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
-                <h3 class="font-bold text-purple-400">2. WFL Analyzer</h3>
-                <p class="text-sm text-slate-400 mt-1">Hitung untung/rugi trade kamu.</p>
-                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/item1 for /item2</code>
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer" onclick="copy('/bat for /harvester')">
+                <h3 class="font-bold text-purple-400">2️⃣ WFL Analyzer</h3>
+                <p class="text-sm text-slate-400 mt-1">Hitung trade: WIN, FAIR, atau LOSE.</p>
+                <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /(item_kamu) for /(item_dia)</code>
             </div>
 
-            <div onclick="copyCmd('/trade /bat')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
-                <h3 class="font-bold text-blue-400">3. Trade Recommendation</h3>
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer" onclick="copy('/trade /makeshift')">
+                <h3 class="font-bold text-blue-400">3️⃣ Trade Recommendation</h3>
                 <p class="text-sm text-slate-400 mt-1">Rekomendasi item setara value.</p>
-                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/trade /nama_item</code>
+                <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /trade /(nama_item)</code>
             </div>
 
-            <div onclick="copyCmd('/cp PlayerName')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
-                <h3 class="font-bold text-emerald-400">4. Roblox Profile</h3>
-                <p class="text-sm text-slate-400 mt-1">Cek umur akun & ID lawan trade.</p>
-                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/cp username</code>
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer" onclick="copy('/cp PlayerNama')">
+                <h3 class="font-bold text-emerald-400">4️⃣ Roblox Profile Checker</h3>
+                <p class="text-sm text-slate-400 mt-1">Cek umur akun & ID (Limit 3x/15 menit).</p>
+                <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /cp (username)</code>
+            </div>
+
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer" onclick="copy('/listall')">
+                <h3 class="font-bold text-orange-400">5️⃣ Database List</h3>
+                <p class="text-sm text-slate-400 mt-1">Lihat semua daftar item terdaftar.</p>
+                <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /listall</code>
+            </div>
+
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer" onclick="copy('/join')">
+                <h3 class="font-bold text-rose-400">6️⃣ Invite Friends</h3>
+                <p class="text-sm text-slate-400 mt-1">Bot akan kirim undangan ke chat pribadi.</p>
+                <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /join</code>
             </div>
 
             <div class="glass p-6 rounded-2xl md:col-span-2">
-                <h3 class="font-bold text-amber-400 mb-4">7. Integrated Marketplace</h3>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/wts item</span>
-                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/wtt item</span>
-                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/lf item</span>
-                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/shoplist</span>
+                <h3 class="font-bold text-yellow-400 mb-2">7️⃣ Integrated Marketplace</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+                    <div class="bg-black/30 p-2 rounded">/wts [item] [NoHP]</div>
+                    <div class="bg-black/30 p-2 rounded">/wtt [item] [NoHP]</div>
+                    <div class="bg-black/30 p-2 rounded">/lf [item]</div>
+                    <div class="bg-black/30 p-2 rounded">/shoplist</div>
                 </div>
+            </div>
+
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer md:col-span-2" onclick="copy('/rank')">
+                <h3 class="font-bold text-pink-400">8️⃣ Rank</h3>
+                <p class="text-sm text-slate-400 mt-1">Cek orang yang paling sering trade.</p>
+                <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /rank</code>
             </div>
         </div>
 
-        <div class="glass p-6 rounded-2xl text-center space-y-2">
-            <p class="text-xs text-slate-500 font-mono">Last Update: 8/3/2026 19.35</p>
-            <a href="https://chat.whatsapp.com/CO0uy7u87doD3Bcm9QPKkd" class="block text-indigo-400 font-bold hover:underline">JOIN GRUP WHATSAPP</a>
+        <div class="glass p-6 rounded-2xl border-l-4 border-red-500">
+            <h3 class="font-bold text-red-400 mb-2">⚠️ PERHATIAN & RULES</h3>
+            <ul class="text-sm text-slate-300 space-y-1 list-disc pl-4">
+                <li>Gunakan awalan garis miring ( / ) untuk memanggil item.</li>
+                <li>Gunakan WFL Analyzer sebelum deal agar tidak menyesal!</li>
+                <li>NO JB! Spam masuk/keluar: BAN.</li>
+                <li>Data: <a href="https://supremevalues.com/" class="underline text-indigo-400">supremevalues.com</a></li>
+            </ul>
+            <div class="mt-4 flex gap-4">
+                <a href="https://chat.whatsapp.com/CO0uy7u87doD3Bcm9QPKkd" class="text-indigo-400 font-bold underline">Link Grup WA</a>
+                <a href="https://gamingfun.me/join.php?RobloxMurderMystery2=86ZB6X" class="text-indigo-400 font-bold underline">Link Private Server</a>
+            </div>
+        </div>
+
+        <div class="text-center text-slate-600 text-xs py-4">
+            Terakhir update value: 8/3/2026 19.35 | 67 Anggota Giveaway
         </div>
     </div>
 
@@ -76,9 +106,9 @@
             if (document.getElementById('password').value === 'romabot') {
                 document.getElementById('loginPage').classList.add('hidden');
                 document.getElementById('mainContent').classList.remove('hidden');
-            } else { alert("Password Salah!"); }
+            } else { alert("Password salah!"); }
         }
-        function copyCmd(cmd) { navigator.clipboard.writeText(cmd); alert('Copied: ' + cmd); }
+        function copy(text) { navigator.clipboard.writeText(text); alert('Perintah dicopy: ' + text); }
         setInterval(() => { location.reload(); }, 60000);
     </script>
 </body>
