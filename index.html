@@ -82,12 +82,23 @@
                 <code class="mt-2 block bg-black/30 p-2 rounded text-xs font-mono">Format: /rank</code>
             </div>
 
-            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer md:col-span-2" onclick="copy('/sticker')">
-                <h3 class="font-bold text-cyan-400">9️⃣ Sticker Maker</h3>
-                <p class="text-sm text-slate-400 mt-1">Ubah gambar jadi stiker dengan atau tanpa teks kustom.</p>
-                <div class="space-y-2 mt-2">
-                    <code class="block bg-black/30 p-2 rounded text-xs font-mono">Cara: Kirim/Reply gambar dengan caption "/sticker"</code>
-                    <code class="block bg-black/30 p-2 rounded text-xs font-mono">Format Teks: /sticker (tulisan kamu)</code>
+            <div class="glass p-6 rounded-2xl cmd-box cursor-pointer md:col-span-2" onclick="copy('/sticker halo 2 middle')">
+                <h3 class="font-bold text-cyan-400">9️⃣ Advanced Sticker Maker</h3>
+                <p class="text-sm text-slate-400 mt-1">Ubah gambar jadi stiker dengan kustomisasi teks, ukuran, dan posisi.</p>
+                <div class="space-y-3 mt-3">
+                    <div class="bg-black/30 p-3 rounded border border-slate-700">
+                        <p class="text-[10px] text-indigo-400 font-bold mb-1 uppercase tracking-widest">Cara Pakai:</p>
+                        <code class="block text-xs font-mono">Reply gambar & ketik: /sticker [teks] [size] [posisi]</code>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[11px]">
+                        <div class="bg-slate-900/50 p-2 rounded">
+                            <span class="text-white font-bold">Size:</span> 1 (kecil), 2 (sedang), 3 (besar)
+                        </div>
+                        <div class="bg-slate-900/50 p-2 rounded">
+                            <span class="text-white font-bold">Posisi:</span> on (atas), middle (tengah), lower (bawah)
+                        </div>
+                    </div>
+                    <p class="text-[10px] text-slate-500 italic">*Jika tidak diisi, otomatis size 1 & posisi lower.</p>
                 </div>
             </div>
         </div>
