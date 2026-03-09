@@ -3,64 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roma Bot Documentation</title>
+    <title>Roma Bot | User Manual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-        body { font-family: 'Inter', sans-serif; background: #f3f4f6; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(15px); border: 1px solid #e2e8f0; }
+        .code-bg { background: #1e293b; color: #f8fafc; }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen">
+<body class="p-4 md:p-10">
 
-    <div id="loginPage" class="glass p-8 rounded-3xl shadow-2xl w-full max-w-sm text-center">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Roma Bot Access</h2>
-        <input type="password" id="password" placeholder="Masukkan Password" class="w-full p-3 rounded-xl border border-gray-300 mb-4 focus:outline-none">
-        <button onclick="checkPassword()" class="w-full bg-gray-800 text-white py-3 rounded-xl hover:bg-black transition">Buka Manual</button>
-        <p id="errorMsg" class="text-red-500 mt-4 hidden">Password Salah!</p>
+    <div id="loginPage" class="flex items-center justify-center min-h-screen">
+        <div class="glass p-8 rounded-3xl shadow-2xl w-full max-w-sm text-center">
+            <h2 class="text-2xl font-extrabold text-gray-800 mb-2">Roma Bot Access</h2>
+            <p class="text-gray-500 mb-6 text-sm">Masukkan password untuk melihat panduan.</p>
+            <input type="password" id="password" placeholder="••••••••" class="w-full p-3 rounded-xl border border-gray-200 mb-4 focus:ring-2 focus:ring-gray-400 outline-none">
+            <button onclick="checkPassword()" class="w-full bg-gray-900 text-white py-3 rounded-xl hover:bg-black transition font-semibold">Masuk</button>
+            <p id="errorMsg" class="text-red-500 mt-4 hidden text-sm">Password salah, coba lagi!</p>
+        </div>
     </div>
 
-    <div id="mainContent" class="hidden w-full max-w-4xl p-6">
-        <div class="glass p-10 rounded-3xl shadow-xl">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">Panduan Roma Bot ⚔️</h1>
-            <p class="text-gray-500 mb-8">Status: <span class="text-green-500 font-semibold">● Auto-Refresh Aktif (60s)</span></p>
+    <div id="mainContent" class="hidden max-w-5xl mx-auto">
+        <header class="mb-10 text-center">
+            <h1 class="text-4xl font-extrabold text-gray-900">Roma Bot User Manual</h1>
+            <p class="text-gray-500 mt-2">Dokumentasi super detail cara menguasai fitur Roma Bot.</p>
+        </header>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-4 border-l-4 border-gray-800 bg-white rounded-r-lg">
-                    <h3 class="font-bold">Check Value</h3>
-                    <p class="text-sm text-gray-600">Ketik nama senjata contoh: .bat</p>
-                </div>
-                <div class="p-4 border-l-4 border-gray-800 bg-white rounded-r-lg">
-                    <h3 class="font-bold">Trade Checker</h3>
-                    <p class="text-sm text-gray-600">Gunakan format: [Item] for [Item]</p>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            <div class="mt-8">
-                <h2 class="text-xl font-semibold mb-4">List Perintah Utama</h2>
-                <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                    <li>/add & /upd - Update Database</li>
-                    <li>/wts /wtt /lf - Marketplace</li>
-                    <li>/rank - Cek Top Trader</li>
-                    <li>/ai - Tanya Roma AI</li>
-                </ul>
+            <div class="glass p-6 rounded-3xl">
+                <h3 class="font-bold text-xl mb-4">⚔️ Weapon Check</h3>
+                <p class="text-gray-600 mb-4 text-sm">Cara cepat cek harga atau statistik senjata MM2:</p>
+                <div class="code-bg p-3 rounded-lg text-sm mb-2">.nama_senjata</div>
+                <p class="text-gray-500 text-xs italic">Contoh: .bat (Harus diawali titik jika di chat WA)</p>
+            </div>
+
+            <div class="glass p-6 rounded-3xl">
+                <h3 class="font-bold text-xl mb-4">⚖️ WFL (Win/Fair/Lose)</h3>
+                <p class="text-gray-600 mb-4 text-sm">Analisis trade kamu apakah untung atau rugi:</p>
+                <div class="code-bg p-3 rounded-lg text-sm mb-2">.senjata1 .senjata2 for .senjata3</div>
+                <p class="text-gray-500 text-xs italic">Bot akan otomatis menghitung total value kedua belah pihak.</p>
+            </div>
+
+            <div class="glass p-6 rounded-3xl md:col-span-2">
+                <h3 class="font-bold text-xl mb-4">🛒 Marketplace</h3>
+                <div class="flex gap-4">
+                    <div class="w-1/3 text-center border-r">
+                        <div class="font-bold text-lg">/wts</div>
+                        <p class="text-xs text-gray-500">Sell</p>
+                    </div>
+                    <div class="w-1/3 text-center border-r">
+                        <div class="font-bold text-lg">/wtt</div>
+                        <p class="text-xs text-gray-500">Trade</p>
+                    </div>
+                    <div class="w-1/3 text-center">
+                        <div class="font-bold text-lg">/lf</div>
+                        <p class="text-xs text-gray-500">Looking For</p>
+                    </div>
+                </div>
+                <p class="mt-4 text-sm text-gray-600">Gunakan format: <code>/wts item kamu</code>. Bot akan mencatatnya ke list jualan.</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Auto Refresh setiap 60 detik
-        setInterval(() => { window.location.reload(); }, 60000);
-
         function checkPassword() {
-            const pass = document.getElementById('password').value;
-            if (pass === 'romabot') {
+            if (document.getElementById('password').value === 'romabot') {
                 document.getElementById('loginPage').classList.add('hidden');
                 document.getElementById('mainContent').classList.remove('hidden');
             } else {
                 document.getElementById('errorMsg').classList.remove('hidden');
             }
         }
+        // Auto refresh
+        setInterval(() => { location.reload(); }, 60000);
     </script>
 </body>
 </html>
