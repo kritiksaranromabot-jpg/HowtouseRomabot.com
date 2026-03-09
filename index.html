@@ -109,7 +109,9 @@
             } else { alert("Password salah!"); }
         }
         function copy(text) { navigator.clipboard.writeText(text); alert('Perintah dicopy: ' + text); }
-        setInterval(() => { location.reload(); }, 60000);
+        
+        // Auto refresh setiap 30 detik (30000 milidetik)
+        setInterval(() => { location.reload(); }, 30000);
     </script>
 </body>
 </html>
