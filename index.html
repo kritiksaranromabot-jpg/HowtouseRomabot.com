@@ -3,66 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roma Master Bot | Command Manual</title>
+    <title>Roma Master Bot | Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0f172a; color: #f8fafc; }
-        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .accent-gradient { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #070b14; color: #e2e8f0; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-glow:hover { box-shadow: 0 0 15px rgba(99, 102, 241, 0.5); }
     </style>
 </head>
-<body class="p-4 md:p-12">
+<body class="p-4 md:p-10">
 
-    <div id="loginPage" class="fixed inset-0 z-50 flex items-center justify-center bg-[#0f172a]">
-        <div class="glass p-8 rounded-3xl w-full max-w-sm text-center">
-            <h2 class="text-2xl font-bold mb-2">Access Required</h2>
-            <input type="password" id="password" placeholder="Enter Password" class="w-full bg-slate-800 p-3 rounded-xl border border-slate-700 mb-4 focus:ring-2 focus:ring-indigo-500 outline-none">
-            <button onclick="checkPassword()" class="w-full accent-gradient py-3 rounded-xl font-bold">Unlock Commands</button>
+    <div id="loginPage" class="fixed inset-0 z-50 flex items-center justify-center bg-[#070b14]">
+        <div class="glass p-8 rounded-3xl w-full max-w-sm text-center shadow-2xl">
+            <h2 class="text-2xl font-bold mb-6 text-white">Roma Master Gate</h2>
+            <input type="password" id="password" placeholder="Enter Password" class="w-full bg-slate-900 p-4 rounded-xl border border-slate-700 mb-4 focus:ring-2 focus:ring-indigo-500 outline-none text-center">
+            <button onclick="checkPassword()" class="w-full bg-indigo-600 hover:bg-indigo-500 py-4 rounded-xl font-bold text-white transition">UNLOCK ACCESS</button>
         </div>
     </div>
 
-    <div id="mainContent" class="hidden max-w-4xl mx-auto space-y-8">
-        <div class="text-center space-y-2">
-            <h1 class="text-5xl font-extrabold tracking-tight">Roma Master Bot</h1>
-            <p class="text-slate-400">Official Documentation & Command Reference</p>
-        </div>
+    <div id="mainContent" class="hidden max-w-5xl mx-auto space-y-8">
+        <header class="text-center py-10">
+            <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">ROMA MASTER BOT</h1>
+            <p class="text-slate-400 mt-2">MM2 Value Check & Trading System - Trusted & Fast</p>
+        </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="glass p-6 rounded-3xl hover:border-indigo-500 transition-all cursor-pointer" onclick="copy('/corrupt')">
-                <h3 class="text-indigo-400 font-bold mb-2">1. Value Check</h3>
-                <p class="text-sm text-slate-300">Cek harga, demand, dan rarity item MM2 secara real-time.</p>
-                <code class="block mt-4 text-indigo-300 font-mono bg-slate-900/50 p-2 rounded">/nama_item</code>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <div onclick="copyCmd('/corrupt')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
+                <h3 class="font-bold text-indigo-400">1. Value Check</h3>
+                <p class="text-sm text-slate-400 mt-1">Cek detail harga, demand, & rarity.</p>
+                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/nama_item</code>
             </div>
 
-            <div class="glass p-6 rounded-3xl hover:border-purple-500 transition-all cursor-pointer" onclick="copy('/bat for /harvester')">
-                <h3 class="text-purple-400 font-bold mb-2">2. WFL Analyzer</h3>
-                <p class="text-sm text-slate-300">Analisis trade: Win, Fair, atau Lose sebelum kamu deal.</p>
-                <code class="block mt-4 text-purple-300 font-mono bg-slate-900/50 p-2 rounded">/item_kamu for /item_dia</code>
+            <div onclick="copyCmd('/bat for /harvester')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
+                <h3 class="font-bold text-purple-400">2. WFL Analyzer</h3>
+                <p class="text-sm text-slate-400 mt-1">Hitung untung/rugi trade kamu.</p>
+                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/item1 for /item2</code>
             </div>
 
-            <div class="glass p-6 rounded-3xl md:col-span-2">
-                <h3 class="text-emerald-400 font-bold mb-2">3. Integrated Marketplace</h3>
-                <div class="grid grid-cols-3 gap-4 text-center text-xs mt-4">
-                    <div class="bg-slate-900 p-2 rounded">/wts (Sell)</div>
-                    <div class="bg-slate-900 p-2 rounded">/wtt (Trade)</div>
-                    <div class="bg-slate-900 p-2 rounded">/lf (Looking)</div>
+            <div onclick="copyCmd('/trade /bat')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
+                <h3 class="font-bold text-blue-400">3. Trade Recommendation</h3>
+                <p class="text-sm text-slate-400 mt-1">Rekomendasi item setara value.</p>
+                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/trade /nama_item</code>
+            </div>
+
+            <div onclick="copyCmd('/cp PlayerName')" class="glass p-6 rounded-2xl cursor-pointer btn-glow transition">
+                <h3 class="font-bold text-emerald-400">4. Roblox Profile</h3>
+                <p class="text-sm text-slate-400 mt-1">Cek umur akun & ID lawan trade.</p>
+                <code class="mt-3 block bg-black/30 p-2 rounded text-xs">/cp username</code>
+            </div>
+
+            <div class="glass p-6 rounded-2xl md:col-span-2">
+                <h3 class="font-bold text-amber-400 mb-4">7. Integrated Marketplace</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/wts item</span>
+                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/wtt item</span>
+                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/lf item</span>
+                    <span class="bg-black/40 px-3 py-1 rounded text-xs">/shoplist</span>
                 </div>
             </div>
-
-            <div class="glass p-6 rounded-3xl">
-                <h3 class="text-blue-400 font-bold mb-2">4. Rank & Stats</h3>
-                <p class="text-sm text-slate-300">Ketik <code class="bg-slate-900 px-1">/rank</code> untuk melihat daftar top trader harian.</p>
-            </div>
-            
-            <div class="glass p-6 rounded-3xl">
-                <h3 class="text-rose-400 font-bold mb-2">⚠️ Important Rules</h3>
-                <p class="text-sm text-slate-300 italic">No JB! Spam = BAN. Data by SupremeValues.</p>
-            </div>
         </div>
 
-        <div class="text-center text-slate-500 text-xs mt-10">
-            Auto-Refresh every 60s | Last Update: 8/3/2026
+        <div class="glass p-6 rounded-2xl text-center space-y-2">
+            <p class="text-xs text-slate-500 font-mono">Last Update: 8/3/2026 19.35</p>
+            <a href="https://chat.whatsapp.com/CO0uy7u87doD3Bcm9QPKkd" class="block text-indigo-400 font-bold hover:underline">JOIN GRUP WHATSAPP</a>
         </div>
     </div>
 
@@ -71,9 +76,9 @@
             if (document.getElementById('password').value === 'romabot') {
                 document.getElementById('loginPage').classList.add('hidden');
                 document.getElementById('mainContent').classList.remove('hidden');
-            }
+            } else { alert("Password Salah!"); }
         }
-        function copy(text) { navigator.clipboard.writeText(text); alert('Copied: ' + text); }
+        function copyCmd(cmd) { navigator.clipboard.writeText(cmd); alert('Copied: ' + cmd); }
         setInterval(() => { location.reload(); }, 60000);
     </script>
 </body>
